@@ -18,4 +18,86 @@ ul {
 
 a {
     text-decoration: none;
+    color: inherit;
+}
+
+main {
+    height: 600px;
+    width: 600px;
+    box-shadow: 10px 0px 1px 1px #FFFFFF;
+    padding: 1em 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3rem;
+    font-family: "Source Code Pro", monospace;
+    font-weight: 700;
+    text-align: center;
+}
+
+.description {
+    border: 1px solid #FFFFFF;
+    padding: 1em;
+    margin-top: 1.5em;
+    width: 90%;
+    box-shadow: 1px 1px 10px #000000;
+}
+
+.description p {
+    text-align: center;
+    color: #000000;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+nav {
+    width: 80%;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    width: 100%;
+    height: auto;
+}
+
+ul li {
+    width: 100%;
+    background-color: blue;
+    padding: 2em;
+    text-align: center;
+    cursor: pointer;
+}
+
+ul li:hover,
+ul li:focus {
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+}
+
+.nav-link {
+    color: #FFFFFF;
+    font-family: "Source Code Pro", monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+ul li:hover .nav-link,
+ul li:focus .nav-link {
+    color: blue;
 }
