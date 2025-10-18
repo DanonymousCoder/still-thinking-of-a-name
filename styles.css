@@ -22,10 +22,10 @@ a {
 }
 
 main {
-    height: 600px;
+    min-height: 600px;
     width: 600px;
     box-shadow: 10px 0px 1px 1px #FFFFFF;
-    padding: 1em 2em;
+    padding: 2em;
     display: flex;
     flex-direction: column;
     gap: 3em;
@@ -54,14 +54,32 @@ h1 {
     margin-top: 1.5em;
     width: 90%;
     box-shadow: 1px 1px 10px #000000;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .description p {
-    text-align: center;
+    text-align: left;
     color: #000000;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
+}
+
+.home h5 {
+    font-size: 1.5rem;
+    font-family: "Source Code Pro", monospace;
+}
+
+.home ul {
+    gap: .5em;
+}
+
+.home li {
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
 }
 
 nav {
@@ -76,7 +94,7 @@ ul {
     height: auto;
 }
 
-ul li {
+nav li {
     width: 100%;
     background-color: blue;
     padding: 2em;
@@ -101,3 +119,118 @@ ul li:hover .nav-link,
 ul li:focus .nav-link {
     color: blue;
 }
+
+
+
+/***** 
+    Practice mode start
+*****/
+
+.codes {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.codes::-webkit-scrollbar-button {
+    background-color: #FFFFFF;
+    border: 1px solid blue;
+    border-radius: 20px;
+    height: 30px;
+}
+
+.codes ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.codes ul li {
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.codes li span {
+    padding-left: .5em;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    margin-top: 2em;
+    width: 100%;
+}
+
+.user-interact {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+}
+
+#user-input {
+    padding: 1em;
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+    width: 400px;
+    background-color: bisque;
+    outline: 1px solid #FFFFFF;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.key {
+    background-color: blue;
+    padding: 2em;
+    border-radius: 50%;
+    color: #FFFFFF;
+    font-family: "Source Code Pro", monospace;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.clear {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    border: 1px solid blue;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.clear a {
+    font-family: "Source Code Pro", monospace;
+    font-size: 1rem;
+}
+
+.back {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.back a {
+    border: 1px solid #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    width: 40%;
+    font-family: "Source Code Pro", monospace;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.back a:hover,
+.back a:focus {
+    border: none;
+    background-color: #FFFFFF;
+}
+
+/***** 
+    Practice mode end 
+*****/
