@@ -41,11 +41,13 @@ header {
     align-items: center;
 }
 
-h1 {
-    font-size: 3rem;
-    font-family: "Source Code Pro", monospace;
+h1,
+title {
+    font-size: 3.5rem;
+    font-family: "Audiowide", cursive;
     font-weight: 700;
     text-align: center;
+    letter-spacing: 2;
 }
 
 .description {

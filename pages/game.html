@@ -32,43 +32,51 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 
-    <!--
+    <!-- 
         Link to CSS
     -->
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 
     <title>"Over" Captain</title>
 </head>
 
 <body>
+
     <div class="container">
         <main>
             <header>
                 <div class="logo">
                     <h1>"Over" Captain</h1>
                 </div>
-                <div class="description home">
-                    <p>
-                        A game that tests your memory and ability to send signals in morse code.
-                    </p>
-                    <h5>How to play: </h5>
-                    <ul>
-                        <li>A single click for a "•"</li>
-                        <li>A double click for a "–"</li>
-                    </ul>
-                </div>
             </header>
 
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="./pages/game.html" class="nav-link">Start</a></li>
-                    <li><a href="./pages/practice.html" class="nav-link">Practice mode</a></li>
-                    <li><a href="#" class="nav-link">Highscores</a></li>
-                </ul>
-            </nav>
+            <div class="bottom">
+                <div class="word">
+                    <p id="word-original"></p>
+                </div>
+
+                <div class="user-interact">
+                    <input type="text" id="user-input">
+                    <div class="signals">
+                        <a href="#" id="enter-signal">Enter Signal</a>
+                        <a href="#" id="send-signal">Send Signal</a>
+                    </div>
+                </div>
+
+                <div class="clear">
+                    <a href="#" id="clear-signal">Clear a Signal</a>
+                    <a href="#" id="clear-wsignal">Clear WHOLE Signal</a>
+                </div>
+
+                <div class="back">
+                    <a href="../index.html">Back to main menu</a>
+                    <a href="#" id="next-q">Next Word</a>
+                </div>
+            </div>
         </main>
     </div>
+
 </body>
 
 </html>

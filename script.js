@@ -71,7 +71,7 @@ function submitMorse() {
 
 
 
-const randomWords = ["dog", "cat", "cup", "cap", "red", "bat", "bow", "203", "10", "99"];
+const randomWords = ["sos", "cat", "cup", "cap", "alpha", "bravo", "bow", "404", "200", "999", "1"];
 
 function generateRandomWord() {
     userInput.style.background = "transparent";
