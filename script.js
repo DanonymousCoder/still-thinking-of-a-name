@@ -4,13 +4,12 @@ const key = document.getElementById("enter-signal");
 const sendSignal = document.getElementById("send-signal");
 const clear = document.querySelector(".clear");
 const nextQ = document.getElementById("next-q");
-const clearOne = document.getElementById("clear-asignal");
-const gameWord = document.getElementById("word-original");
-const countdown = document.getElementById("countdown");
+
 
 const morseCode = {
     a: "•–", b: "–•••", c: "–•–•", d: "–••", e: "•", f: "••–•", g: "––•", h: "••••", i: "••", j: "•–––", k: "–•–", l: "•–••", m: "––", n: "–•", o: "–––", p: "•––•",
-    q: "––•–", r: "•–•", s: "•••", t: "–", u: "••–", v: "•••–", w: "•––", x: "–••–", y: "–•––", z: "––••"
+    q: "––•–", r: "•–•", s: "•••", t: "–", u: "••–", v: "•••–", w: "•––", x: "–••–", y: "–•––", z: "––••", 1: "•––––", 2: "••–––", 3: "•••––", 4: "••••–", 5: "•••••",
+    6: "–••••", 7: "––•••", 8: "–––••", 9: "––––•", 0: "–––––"
 }
 
 
@@ -32,17 +31,10 @@ key.addEventListener("click", () => {
 key.addEventListener("dblclick", secondMorse);
 
 clear.addEventListener("click", clearMorse);
-clearOne.addEventListener("click", clearOneMorse);
 
 sendSignal.addEventListener("click", submitMorse);
 nextQ.addEventListener("click", generateRandomWord);
-nextQ.addEventListener("click", gamePageWord);
 
-
-function init() {
-    generateRandomWord();
-    gamePageWord();
-}
 
 function firstMorse() {
     userInput.value += "•";
@@ -62,33 +54,20 @@ function clearMorse() {
     console.log(userInput.value);
 }
 
-function clearOneMorse() {
-    let lastVal = userInput.value.length - 1;
-
-    let nEw = "";
-
-    for (let i = 0; i < lastVal; i++) {
-        nEw += userInput.value[i]
-    }
-
-    userInput.value = nEw;
-}
-
 function submitMorse() {
     let check = "";
 
-    for (let i = 0; i < givenWord.length; i++) {
-        let eachMorse = givenWord[i];
+    for (let i = 0; i < givenWord.textContent.length; i++) {
+        let eachMorse = givenWord.textContent[i];
         check += morseCode[eachMorse]
     }
-
-    console.log(check);
 
     if (userInput.value == check) {
         userInput.style.backgroundColor = "green";
     } else {
         userInput.style.backgroundColor = "red";
     }
+
 }
 
 
@@ -103,18 +82,12 @@ function generateRandomWord() {
     return randomWords[randomWord];
 }
 
-function gamePageWord() {
-    let randomWord = Math.floor(Math.random() * randomWords.length);
-    gameWord.textContent = randomWords[randomWord];
-}
-
-let count = document.getElementById("countdown");
-
-const countTimer = setInterval(function () {
-    count--;
-
-    document.getElementById("countdown").textContent = count;
-})
 
 
-window.onload = init();
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    generateRandomWord();
+});
