@@ -4,7 +4,9 @@ const key = document.getElementById("enter-signal");
 const sendSignal = document.getElementById("send-signal");
 const clear = document.querySelector(".clear");
 const nextQ = document.getElementById("next-q");
-
+const clearOne = document.getElementById("clear-asignal");
+const gameWord = document.getElementById("word-original");
+const countdown = document.getElementById("countdown");
 
 const morseCode = {
     a: "•–", b: "–•••", c: "–•–•", d: "–••", e: "•", f: "••–•", g: "––•", h: "••••", i: "••", j: "•–––", k: "–•–", l: "•–••", m: "––", n: "–•", o: "–––", p: "•––•",
@@ -28,11 +30,19 @@ key.addEventListener("click", () => {
 
 
 key.addEventListener("dblclick", secondMorse);
+
 clear.addEventListener("click", clearMorse);
+clearOne.addEventListener("click", clearOneMorse);
+
 sendSignal.addEventListener("click", submitMorse);
 nextQ.addEventListener("click", generateRandomWord);
+nextQ.addEventListener("click", gamePageWord);
 
 
+function init() {
+    generateRandomWord();
+    gamePageWord();
+}
 
 function firstMorse() {
     userInput.value += "•";
@@ -52,11 +62,23 @@ function clearMorse() {
     console.log(userInput.value);
 }
 
+function clearOneMorse() {
+    let lastVal = userInput.value.length - 1;
+
+    let nEw = "";
+
+    for (let i = 0; i < lastVal; i++) {
+        nEw += userInput.value[i]
+    }
+
+    userInput.value = nEw;
+}
+
 function submitMorse() {
     let check = "";
 
-    for (let i = 0; i < activeWord.length; i++) {
-        let eachMorse = activeWord[i];
+    for (let i = 0; i < givenWord.length; i++) {
+        let eachMorse = givenWord[i];
         check += morseCode[eachMorse]
     }
 
@@ -75,12 +97,24 @@ const randomWords = ["sos", "cat", "cup", "cap", "alpha", "bravo", "bow", "404",
 
 function generateRandomWord() {
     userInput.style.background = "transparent";
-    randomWord = Math.floor(Math.random() * randomWords.length);
+    let randomWord = Math.floor(Math.random() * randomWords.length);
 
     givenWord.textContent = randomWords[randomWord];
     return randomWords[randomWord];
 }
 
-let activeWord = generateRandomWord();
+function gamePageWord() {
+    let randomWord = Math.floor(Math.random() * randomWords.length);
+    gameWord.textContent = randomWords[randomWord];
+}
 
-window.onload = activeWord;
+let count = document.getElementById("countdown");
+
+const countTimer = setInterval(function () {
+    count--;
+
+    document.getElementById("countdown").textContent = count;
+})
+
+
+window.onload = init();

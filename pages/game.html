@@ -38,6 +38,12 @@
 
     <link rel="stylesheet" href="../styles.css">
 
+    <!-- 
+        Link to Game CSS
+    -->
+
+    <link rel="stylesheet" href="../css/game.css">
+
     <title>"Over" Captain</title>
 </head>
 
@@ -52,21 +58,30 @@
             </header>
 
             <div class="bottom">
+
                 <div class="word">
-                    <p id="word-original"></p>
+                    <p id="word-original">bravo</p>
                 </div>
 
-                <div class="user-interact">
-                    <input type="text" id="user-input">
-                    <div class="signals">
-                        <a href="#" id="enter-signal">Enter Signal</a>
-                        <a href="#" id="send-signal">Send Signal</a>
+                <div class="exam">
+
+                    <div class="reveal-cont">
+                        <a href="#" class="reveal" id="reveal-morse-code">Reveal Morse Code</a>
+                    </div>
+
+                    <div class="timer">
+                        <p class="countdown" id="countdown">90</p>
                     </div>
                 </div>
 
-                <div class="clear">
-                    <a href="#" id="clear-signal">Clear a Signal</a>
-                    <a href="#" id="clear-wsignal">Clear WHOLE Signal</a>
+                <div class="user-interact">
+                    <input type="text" id="user-input" disabled>
+                    <div class="signals">
+                        <a href="#" id="clear-asignal">Clear A signal</a>
+                        <a href="#" id="enter-signal">Enter Signal</a>
+                        <a href="#" id="send-signal">Send Signal</a>
+                        <a href="#" class="clear" id="clear-signal">Clear WHOLE Signal</a>
+                    </div>
                 </div>
 
                 <div class="back">
@@ -76,6 +91,13 @@
             </div>
         </main>
     </div>
+
+
+    <!-- 
+        Link to JS
+    -->
+
+    <script src="../script.js"></script>
 
 </body>
 
