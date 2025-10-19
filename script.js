@@ -1,10 +1,38 @@
 let userInput = document.getElementById("user-input");
-const key = document.querySelector(".key");
+let givenWord = document.getElementById("word-t");
+const key = document.getElementById("enter-signal");
+const sendSignal = document.getElementById("send-signal");
 const clear = document.querySelector(".clear");
+const nextQ = document.getElementById("next-q");
+
+
+const morseCode = {
+    a: "•–", b: "–•••", c: "–•–•", d: "–••", e: "•", f: "••–•", g: "––•", h: "••••", i: "••", j: "•–––", k: "–•–", l: "•–••", m: "––", n: "–•", o: "–––", p: "•––•",
+    q: "––•–", r: "•–•", s: "•••", t: "–", u: "••–", v: "•••–", w: "•––", x: "–••–", y: "–•––", z: "––••"
+}
+
 
 // key.addEventListener("click", firstMorse);
+
+let clickTimer = null;
+
+key.addEventListener("click", () => {
+    clearTimeout(clickTimer);
+
+    clickTimer = setTimeout(() => {
+        userInput.value += "•";
+        console.log(userInput.value);
+    }, 500)
+});
+
+
+
 key.addEventListener("dblclick", secondMorse);
 clear.addEventListener("click", clearMorse);
+sendSignal.addEventListener("click", submitMorse);
+nextQ.addEventListener("click", generateRandomWord);
+
+
 
 function firstMorse() {
     userInput.value += "•";
@@ -20,17 +48,39 @@ function secondMorse() {
 
 function clearMorse() {
     userInput.value = "";
+    userInput.style.background = "transparent";
     console.log(userInput.value);
 }
 
+function submitMorse() {
+    let check = "";
 
-let clickTimer = null;
+    for (let i = 0; i < activeWord.length; i++) {
+        let eachMorse = activeWord[i];
+        check += morseCode[eachMorse]
+    }
 
-key.addEventListener("click", () => {
-    clearTimeout(clickTimer);
+    console.log(check);
 
-    clickTimer = setTimeout(() => {
-        userInput.value += "•";
-        console.log(userInput.value);
-    }, 500)
-})
+    if (userInput.value == check) {
+        userInput.style.backgroundColor = "green";
+    } else {
+        userInput.style.backgroundColor = "red";
+    }
+}
+
+
+
+const randomWords = ["dog", "cat", "cup", "cap", "red", "bat", "bow", "203", "10", "99"];
+
+function generateRandomWord() {
+    userInput.style.background = "transparent";
+    randomWord = Math.floor(Math.random() * randomWords.length);
+
+    givenWord.textContent = randomWords[randomWord];
+    return randomWords[randomWord];
+}
+
+let activeWord = generateRandomWord();
+
+window.onload = activeWord;

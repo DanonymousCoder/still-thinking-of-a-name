@@ -28,7 +28,7 @@ main {
     padding: 2em;
     display: flex;
     flex-direction: column;
-    gap: 3em;
+    gap: 1.5em;
     justify-content: center;
     align-items: center;
 }
@@ -62,9 +62,13 @@ h1 {
 .description p {
     text-align: left;
     color: #000000;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
+}
+
+.home {
+    padding: 1em 2em;
 }
 
 .home h5 {
@@ -74,12 +78,21 @@ h1 {
 
 .home ul {
     gap: .5em;
+    padding: 0 1.5em;
 }
 
 .home li {
     border: none;
     font-family: "Poppins", sans-serif;
     font-size: 1rem;
+}
+
+.home li:hover {
+    border: none;
+}
+
+h5~ul>li {
+    list-style-type: disc;
 }
 
 nav {
@@ -157,7 +170,7 @@ ul li:focus .nav-link {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2em;
+    gap: 1em;
     margin-top: 2em;
     width: 100%;
 }
@@ -165,8 +178,16 @@ ul li:focus .nav-link {
 .user-interact {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 3em;
+    justify-content: center;
     align-items: center;
+    margin: 2em 0;
+}
+
+#word-t {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-family: "Source Code Pro", monospace;
 }
 
 #user-input {
@@ -180,13 +201,18 @@ ul li:focus .nav-link {
     font-size: 1.5rem;
 }
 
+.signals {
+    display: flex;
+    gap: 1.5em;
+}
+
 .key {
     background-color: blue;
     padding: 2em;
     border-radius: 50%;
     color: #FFFFFF;
     font-family: "Source Code Pro", monospace;
-    font-size: 1rem;
+    font-size: .9rem;
     cursor: pointer;
 }
 
@@ -209,7 +235,7 @@ ul li:focus .nav-link {
 .back {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -226,7 +252,7 @@ ul li:focus .nav-link {
 }
 
 .back a:hover,
-.back a:focus {
+.back a:focus-within {
     border: none;
     background-color: #FFFFFF;
 }
