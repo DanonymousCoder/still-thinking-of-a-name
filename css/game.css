@@ -4,6 +4,28 @@
     box-sizing: border-box;
 }
 
+.container {
+    gap: 1em;
+}
+
+aside {
+    height: 600px;
+    width: 500px;
+    border: 1px solid brown;
+    padding: 3em;
+    border-radius: 10px;
+}
+
+aside ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+aside ul li {
+    border: none;
+    letter-spacing: .195em;
+}
+
 main {
     width: 700px;
 }
