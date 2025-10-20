@@ -76,7 +76,7 @@ function gamePageWord() {
     let randomWord = Math.floor(Math.random() * randomWords.length);
     gameWord.textContent = randomWords[randomWord];
 
-    let count = 10;
+    let count = 90;
     countdown.textContent = count;
 
     countTimer = setInterval(function () {
