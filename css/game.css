@@ -16,6 +16,10 @@ aside {
     border-radius: 10px;
 }
 
+.aside-active {
+    display: none;
+}
+
 aside ul {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

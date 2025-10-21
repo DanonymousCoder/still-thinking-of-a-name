@@ -6,6 +6,8 @@ const sendSignalMain = document.getElementById("send-signal-main");
 const enterSignal = document.getElementById("enter-signal");
 const gameWord = document.getElementById("word-original");
 let nextQ = document.getElementById("next-q");
+const revealMorse = document.getElementById("reveal-morse-code");
+const aside = document.querySelector("aside");
 
 
 const morseCode = {
@@ -45,6 +47,10 @@ enterSignal.addEventListener("dblclick", () => {
     userInput.value += "–"
 })
 
+revealMorse.addEventListener("click", () => {
+    aside.classList.toggle("aside-active");
+})
+
 
 function clearOneMorse() {
     let lastVal = userInput.value.length - 1;
@@ -63,6 +69,8 @@ function clearOneMorse() {
 const randomWords = ["sos", "cat", "cup", "cap", "alpha", "bravo", "bow", "404", "200", "999", "1"];
 
 let countTimer = null;
+let currentCount = 0;
+let stoppedTime = 0;
 
 function gamePageWord() {
     if (countTimer) {
@@ -76,16 +84,16 @@ function gamePageWord() {
     let randomWord = Math.floor(Math.random() * randomWords.length);
     gameWord.textContent = randomWords[randomWord];
 
-    let count = 90;
-    countdown.textContent = count;
+    currentCount = 90;
+    countdown.textContent = currentCount;
 
     countTimer = setInterval(function () {
-        count--;
-        console.log(count);
+        currentCount--;
+        console.log(currentCount);
 
-        countdown.textContent = count;
+        countdown.textContent = currentCount;
 
-        if (count <= 0) {
+        if (currentCount <= 0) {
             clearInterval(countTimer);
             countTimer = null;
             nextQ.disabled = false;
@@ -96,6 +104,13 @@ function gamePageWord() {
 }
 
 function submitMorse() {
+    if (countTimer) {
+        clearInterval(countTimer);
+        countTimer = null;
+        stoppedTime = currentCount;
+        nextQ.disabled = false;
+    }
+
     let check = "";
 
     for (let i = 0; i < gameWord.textContent.length; i++) {
